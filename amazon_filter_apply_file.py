@@ -193,20 +193,8 @@ time.sleep(5)
 print("Taking Screenshot")
 driver.save_screenshot("screen.png")
 time.sleep(5)
-print("Screenshot saved")
+print("Screenshot saved successfully")
 
+# Closing driver
 driver.close()
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
+
