@@ -11,6 +11,8 @@ def test_search_product():
     time.sleep(5)
     amazon_homepage = AmazonHomepage(driver)
     amazon_homepage.search_products("Wireless Mouse")
+    assert amazon_homepage.verify_logo() == True
+    print("Verifying Logo")
     time.sleep(2)
 
     driver.quit()
