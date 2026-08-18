@@ -190,6 +190,7 @@ driver.refresh()
 print("Screen Refreshed---------------------------------------")
 time.sleep(5)
 # Site was refreshed successfully
+#practice
 
 print("Taking Screenshot")
 driver.save_screenshot("screen.png")
