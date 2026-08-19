@@ -1,7 +1,7 @@
 import time
 
 from selenium import webdriver
-from amazon_homepage import AmazonHomepage
+from test_amazon_homepage import AmazonHomepage
 
 def test_search_product():
 
