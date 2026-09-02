@@ -1,52 +1,37 @@
 import time
 
+import pytest
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-def test_amazon_homepage():
+def test_amazon_homepage(driver):
     print("Amazon test is running")
 
-def test_amazon_home_page():
+def test_amazon_home_page(driver):
     print("Amazon homepage test")
 
-def test_amazon_search():
+def test_amazon_search(driver):
     print("Amazon search test")
 
-def test_number():
+def test_number(driver):
     a=10
     b=10
     assert a==b
 
-def test_amazon_title():
+
+@pytest.fixture(scope="module")
+def driver():
     driver = webdriver.Chrome()
+    driver.maximize_window()
     driver.get("https://www.amazon.in/")
     time.sleep(5)
-    actual_title = driver.title
-    expected_title = "Amazon.in"
-    assert expected_title in actual_title
+    yield driver
+    driver.quit()
 
-# Your exercise
-# Use your existing test_amazon_homepage.py.
-# Create a setup() function that:
-# 1. Opens Chrome.
-# 2. Maximizes it.
-# 3. Opens Amazon.
-# 4. Returns the driver.
-# Then create this test:
-# def test_amazon_title():
-# Inside it:
-# 1. Get the driver from setup().
-# 2. Get the page title.
-# 3. Verify "Amazon.in" exists in the title.
-# 4. Close the browser.
-# Don't use:
-# @pytest.fixture
-# yet.
-# Don't create conftest.py yet.
-# We're intentionally keeping this exercise focused on understanding Setup.
-
+def test_amazon_title(driver):
+    assert "Amazon" in driver.title
 
 
 
